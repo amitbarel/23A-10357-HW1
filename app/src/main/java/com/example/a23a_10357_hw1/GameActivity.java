@@ -19,9 +19,9 @@ public class GameActivity extends AppCompatActivity {
     private ShapeableImageView carLeft;
     private AppCompatImageView background;
     private GameManager GM;
-//    private View left;
-//    private View middle;
-//    private View right;
+    private View leftLane;
+    private View middleLane;
+    private View rightLane;
 
     private int currentSpot;
 
@@ -84,8 +84,8 @@ public class GameActivity extends AppCompatActivity {
         Hearts = new ShapeableImageView[]{
                 findViewById(R.id.game_IMG_heart_1),findViewById(R.id.game_IMG_heart_2),
                 findViewById(R.id.game_IMG_heart_3)};
-//        left = findViewById(R.id.game_VIEW_left);
-//        middle = findViewById(R.id.game_VIEW_middle);
-//        right = findViewById(R.id.game_VIEW_right);
+        leftLane = findViewById(R.id.game_VIEW_leftLane);
+        middleLane = findViewById(R.id.game_VIEW_middleLane);
+        rightLane = findViewById(R.id.game_VIEW_rightLane);
     }
 }

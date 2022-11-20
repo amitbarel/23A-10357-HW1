@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:id="@+id/game_VIEW_left"
+            android:id="@+id/game_VIEW_leftLane"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -58,13 +58,13 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/game_VIEW_middle"
+            android:id="@+id/game_VIEW_middleLane"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="horizontal" />
         <LinearLayout
-            android:id="@+id/game_VIEW_right"
+            android:id="@+id/game_VIEW_rightLane"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
