@@ -5,14 +5,20 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
+
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
+
+import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
     private ExtendedFloatingActionButton goLeft;
     private ExtendedFloatingActionButton goRight;
+    private RelativeLayout ConeSpace;
+    private ShapeableImageView[] Cones;
     private ShapeableImageView[] Hearts;
     private ShapeableImageView carMid;
     private ShapeableImageView carRight;
@@ -81,11 +87,9 @@ public class GameActivity extends AppCompatActivity {
         carLeft = findViewById(R.id.game_IMG_carLeft);
         carMid = findViewById(R.id.game_IMG_carMid);
         carRight = findViewById(R.id.game_IMG_carRight);
+        ConeSpace = findViewById(R.id.game_RL_cones);
         Hearts = new ShapeableImageView[]{
                 findViewById(R.id.game_IMG_heart_1),findViewById(R.id.game_IMG_heart_2),
                 findViewById(R.id.game_IMG_heart_3)};
-        leftLane = findViewById(R.id.game_VIEW_leftLane);
-        middleLane = findViewById(R.id.game_VIEW_middleLane);
-        rightLane = findViewById(R.id.game_VIEW_rightLane);
     }
 }
