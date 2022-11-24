@@ -3,11 +3,16 @@ package com.example.a23a_10357_hw1;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -19,6 +24,7 @@ import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
 
+    private Vibrator v;
     private ExtendedFloatingActionButton goLeft;
     private ExtendedFloatingActionButton goRight;
     private RelativeLayout ConeSpace;
@@ -40,6 +46,7 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         currentSpot = 1;
@@ -114,26 +121,37 @@ public class GameActivity extends AppCompatActivity {
 
     private void startGame(){
         startTime = System.currentTimeMillis();
-        int index = 0;
         timer = new Timer();
         timer.scheduleAtFixedRate(
                 new TimerTask() {
                     @Override
                     public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                GameActivity.this.updateConeLocation(index);
-                            }
-                        });
+                        runOnUiThread(() -> GameActivity.this.updateConeLocation());
                     }
                 }
                 , DELAY, DELAY);
     }
 
-    private void updateConeLocation(int index) {
+    private void updateConeLocation() {
         lowerLocations();
         initRandomCone();
+        checkHit();
+    }
+
+    private void checkHit() {
+        if (Cones[Cones.length-1][currentSpot].getVisibility() == View.VISIBLE){
+            GM.updateWrong();
+            Cones[Cones.length-1][currentSpot].setVisibility(View.INVISIBLE);
+            if (GM.getWrong() != 0){
+                Hearts[Hearts.length-GM.getWrong()].setVisibility(View.INVISIBLE);
+            }
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                v.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
+            }else{
+                v.vibrate(500);
+            }
+            Toast.makeText(this,"You just got hit!",Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void lowerLocations() {
@@ -146,10 +164,12 @@ public class GameActivity extends AppCompatActivity {
 
     private void initRandomCone() {
         Random rand = new Random();
-        int rnd = rand.nextInt(3);
+        int rnd = rand.nextInt(4);
         for (int i = 0; i < Cones[0].length; i++) {
             Cones[0][i].setVisibility(View.INVISIBLE);
         }
-        Cones[0][rnd].setVisibility(View.VISIBLE);
+        if(rnd >= 0 && rnd <3) {
+            Cones[0][rnd].setVisibility(View.VISIBLE);
+        }
     }
 }

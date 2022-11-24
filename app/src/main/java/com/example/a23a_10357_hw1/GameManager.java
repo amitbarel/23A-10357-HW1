@@ -16,6 +16,10 @@ public class GameManager {
         return wrong;
     }
 
+    public void updateWrong(){
+        this.wrong++;
+    }
+
     public boolean isLose(){
         return life == wrong;
     }
