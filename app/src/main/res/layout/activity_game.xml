@@ -259,6 +259,7 @@
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/game_RL_cars"
+        android:layout_alignBottom="@+id/game_RL_cones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
