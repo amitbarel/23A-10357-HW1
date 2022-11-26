@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
@@ -145,7 +146,13 @@ public class GameActivity extends AppCompatActivity {
             if (GM.getWrong() != 0){
                 Hearts[Hearts.length-GM.getWrong()].setVisibility(View.INVISIBLE);
             }
+            if (GM.isLose()){
+                Intent mainIntent = new Intent(this,GameActivity.class);
+                startActivity(mainIntent);
+                finish();
+            }
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                Log.d("Vibrations","Vibrate!");
                 v.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
             }else{
                 v.vibrate(500);

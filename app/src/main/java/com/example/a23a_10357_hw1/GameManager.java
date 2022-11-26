@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class GameManager {
     private int wrong = 0;
     private int life;
-    private Player pilot;
-    private ArrayList<Obstacle> cones;
 
     public GameManager(int life) {
         this.life = life;
@@ -24,12 +22,4 @@ public class GameManager {
         return life == wrong;
     }
 
-    public ArrayList<Obstacle> getCones() {
-        return cones;
-    }
-
-    public GameManager setCones(ArrayList<Obstacle> cones) {
-        this.cones = cones;
-        return this;
-    }
 }
