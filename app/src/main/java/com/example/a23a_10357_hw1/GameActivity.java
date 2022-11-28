@@ -143,13 +143,8 @@ public class GameActivity extends AppCompatActivity {
         if (Cones[Cones.length-1][currentSpot].getVisibility() == View.VISIBLE){
             GM.updateWrong();
             Cones[Cones.length-1][currentSpot].setVisibility(View.INVISIBLE);
-            if (GM.getWrong() != 0){
+            if (GM.getWrong() > 0){
                 Hearts[Hearts.length-GM.getWrong()].setVisibility(View.INVISIBLE);
-            }
-            if (GM.isLose()){
-                Intent mainIntent = new Intent(this,GameActivity.class);
-                startActivity(mainIntent);
-                finish();
             }
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                 Log.d("Vibrations","Vibrate!");
