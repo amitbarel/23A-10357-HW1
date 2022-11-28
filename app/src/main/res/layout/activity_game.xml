@@ -66,7 +66,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="28dp">
             <LinearLayout
                 android:id="@+id/game_VIEW_leftLane"
                 android:layout_width="0dp"
@@ -76,11 +77,11 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_L1"
-                    android:visibility="invisible"
                     android:layout_width="72dp"
                     android:layout_height="72dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="12dp"
+                    android:visibility="invisible"
                     android:layout_marginHorizontal="28dp"
                     android:src="@drawable/traffic_cone_128"/>
 
@@ -262,7 +263,6 @@
         android:layout_alignBottom="@+id/game_RL_cones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="28dp">
 
@@ -302,25 +302,27 @@
         android:id="@+id/game_FAB_goLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/blue_300"
         app:icon="@drawable/ic_baseline_arrow_left_24"
         app:iconSize="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="16dp"/>
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/game_FAB_goRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:layout_marginHorizontal="24dp"
         android:backgroundTint="@color/blue_300"
         app:icon="@drawable/ic_baseline_arrow_right_24"
         app:iconSize="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginHorizontal="24dp"
-        android:layout_margin="16dp"/>
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </RelativeLayout>
