@@ -26,6 +26,7 @@ import java.util.TimerTask;
 public class GameActivity extends AppCompatActivity {
 
     private Vibrator v;
+    private Toast toast;
     private ExtendedFloatingActionButton goLeft;
     private ExtendedFloatingActionButton goRight;
     private RelativeLayout ConeSpace;
@@ -57,6 +58,12 @@ public class GameActivity extends AppCompatActivity {
         goLeft.setOnClickListener(view->slideLeft());
         goRight.setOnClickListener(view->slideRight());
         timer = new Timer();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        toast.cancel();
     }
 
     private void initViews() {
@@ -152,7 +159,7 @@ public class GameActivity extends AppCompatActivity {
             }else{
                 v.vibrate(500);
             }
-            Toast.makeText(this,"You just got hit!",Toast.LENGTH_SHORT).show();
+            toast.makeText(this,"You just got hit!",Toast.LENGTH_SHORT).show();
         }
     }
 
