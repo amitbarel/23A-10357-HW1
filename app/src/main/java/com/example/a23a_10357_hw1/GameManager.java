@@ -15,7 +15,8 @@ public class GameManager {
     }
 
     public void updateWrong(){
-        this.wrong++;
+        if(wrong<life)
+            this.wrong++;
     }
 
     public boolean isLose(){

@@ -60,12 +60,6 @@ public class GameActivity extends AppCompatActivity {
         timer = new Timer();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        toast.cancel();
-    }
-
     private void initViews() {
         Glide
                 .with(this)
