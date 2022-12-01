@@ -66,6 +66,12 @@ public class GameActivity extends AppCompatActivity {
         toast.cancel();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        toast.cancel();
+    }
+
     private void initViews() {
         Glide
                 .with(this)
